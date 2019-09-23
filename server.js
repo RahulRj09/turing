@@ -26,5 +26,6 @@ var knex = require('knex')({
 
 const express = require('express');
 const app = express();
+const routes = require('./routes');
 
 app.listen(4000);
