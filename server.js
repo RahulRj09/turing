@@ -17,8 +17,10 @@ connection.connect(function(err){
 
 const express = require('express');
 const app = express();
-const routes = require('./routes/department');
-app.use('/', routes);
+const department = require('./routes/department');
+app.use('/',department);
 
+const categories = require('./routes/categories');
+app.use('/',categories);
 
 app.listen(4000);

@@ -10,7 +10,7 @@ router.get("/departments",(req,res)=>{
                 return res.json("data not found");
             })
     })
-router.get("/departments/:id",(req,res)=>{
+router.get("/departments/:department_id",(req,res)=>{
         knex('department').select('*').where('department_id',  req.params.id)
             .then((data)=> {
                 return res.json(data);
