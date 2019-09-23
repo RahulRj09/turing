@@ -11,7 +11,7 @@ router.get("/departments",(req,res)=>{
             })
     })
 router.get("/departments/:department_id",(req,res)=>{
-        knex('department').select('*').where('department_id',  req.params.id)
+        knex('department').select('*').where('department_id',  req.params.department_id)
             .then((data)=> {
                 return res.json(data);
             }).catch((err)=>{
