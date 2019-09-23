@@ -14,18 +14,11 @@ connection.connect(function(err){
   console.log('connected as id ' + connection.threadId)
 });
 
-var knex = require('knex')({
-  client: 'mysql',
-  connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password:'password',
-  database:'turing'
-  }
-}); 
 
 const express = require('express');
 const app = express();
-const routes = require('./routes');
+const routes = require('./routes/department');
+app.use('/', routes);
+
 
 app.listen(4000);
