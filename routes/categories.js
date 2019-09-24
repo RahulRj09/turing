@@ -29,5 +29,13 @@ router.get("/categories/inProduct/:product_id",(req,res)=>{
     })
 })
 
+router.get("/categories/inDepartment/:department_id",(req,res)=>{
+    knex.select("*").from("department").join('category','category.category_id','department.department_id')
+    .then((data)=>{
+        res.json(data);
+    }).catch((error)=>{
+        res.json("data not dound");
+    })
+})
 
 module.exports = router;
