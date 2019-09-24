@@ -23,4 +23,7 @@ app.use('/',department);
 const categories = require('./routes/categories');
 app.use('/',categories);
 
+const product = require('./routes/product')
+app.use('/',product);
+
 app.listen(4000);

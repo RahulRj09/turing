@@ -20,4 +20,14 @@ router.get("/categories/:category_id",(req,res)=>{
     })
 })
 
+router.get("/categories/inProduct/:product_id",(req,res)=>{
+    knex.select("*").from("product").join('category','category.category_id','product.product_id')
+    .then((data)=>{
+        res.json(data);
+    }).catch((error)=>{
+        res.json("data not found");
+    })
+})
+
+
 module.exports = router;
