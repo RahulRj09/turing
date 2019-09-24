@@ -10,5 +10,13 @@ attributes.get("/attributes",(req,res)=>{
         res.jsonp(error);
     })
 })
+attributes.get("/attribute/:attribute_id",(req,res)=>{
+    knex("attribute").select("*").where("attribute_id", req.param.attribute_id)
+    .then((data)=>{
+        res.json(data);
+    }).catch((error)=>{
+        res.jsonp(error);
+    })
+})
 
 module.exports = attributes;
