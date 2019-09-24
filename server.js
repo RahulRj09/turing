@@ -23,7 +23,10 @@ app.use('/',department);
 const categories = require('./routes/categories');
 app.use('/',categories);
 
-const product = require('./routes/product')
+const product = require('./routes/product');
 app.use('/',product);
+
+const attributes = require('./routes/attributes');
+app.use('/',attributes);
 
 app.listen(4000);
