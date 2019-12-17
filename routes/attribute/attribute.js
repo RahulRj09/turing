@@ -6,22 +6,13 @@ const attributeController = require("../../controllers/attribute");
 attributes.use(express.json());
 
 attributes.get("/", attributeController.getAttributes);
-attributes.get("/attributes/:attribute_id", (req, res) => {
-  knex("attribute")
-    .select("*")
-    .where("attribute_id", req.param.attribute_id)
-    .then(data => {
-      res.json(data);
-    })
-    .catch(error => {
-      res.jsonp(error);
-    });
-});
+attributes.get("/:attribute_id", attributeController.getAttributeById);
 
 attributes.get("/attributes/values/:attribute_id", (req, res) => {
   knex("attribute_value")
     .select("*")
     .then(data => {
+       
       res.json(data);
     })
     .catch(error => {
