@@ -36,3 +36,16 @@ exports.getCategoryUsingProductId = (req, res) => {
       res.json("data not found");
     });
 };
+
+exports.getCategoryUsingDepartmentId = (req, res) => {
+  knex
+    .select("*")
+    .from("department")
+    .join("category", "category.category_id", "department.department_id")
+    .then(data => {
+      res.json(data);
+    })
+    .catch(error => {
+      res.json("data not dound");
+    });
+};
