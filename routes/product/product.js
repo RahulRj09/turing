@@ -15,4 +15,6 @@ product.get(
   productController.getProductUsingDepartmentId
 );
 
+product.get("/:product_id/details", productController.getProductById);
+
 module.exports = product;
