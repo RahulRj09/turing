@@ -1,6 +1,6 @@
 const express = require("express");
 const attributes = express.Router();
-const knex = require("../knex");
+const knex = require("../models/knex");
 attributes.use(express.json());
 
 attributes.get("/attributes",(req,res)=>{

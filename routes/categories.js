@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('../knex');
+const knex = require('../models/knex');
 router.use(express.json())
 router.get("/categories",(req,res)=>{
     knex("category").select("*")
