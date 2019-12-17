@@ -14,3 +14,15 @@ exports.create = (req, res) => {
       return res.send(error);
     });
 };
+
+exports.login = (req, res) => {
+  knex("customer")
+    .select("*")
+    .where({ email: req.body.emailId, password: req.body.password })
+    .then(success => {
+      return res.json(success);
+    })
+    .catch(error => {
+      return res.send(error);
+    });
+};
