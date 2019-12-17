@@ -10,5 +10,9 @@ product.get(
   "/inCategory/:category_id",
   productController.getProductUsingCategoryId
 );
+product.get(
+  "/inDepartment/:department_id",
+  productController.getProductUsingDepartmentId
+);
 
 module.exports = product;
