@@ -1,16 +1,8 @@
 const express = require("express");
 const department = express.Router();
+const departmentController = require("../../controllers/department");
 const knex = require("../../models/knex");
-department.get("/", (req, res) => {
-  knex("department")
-    .select("*")
-    .then(data => {
-      return res.json(data);
-    })
-    .catch(err => {
-      return res.json("data not found");
-    });
-});
+department.get("/", departmentController.getDepartments);
 department.get("/departments/:department_id", (req, res) => {
   knex("department")
     .select("*")
