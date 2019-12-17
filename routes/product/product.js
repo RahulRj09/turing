@@ -4,5 +4,6 @@ const productController = require("../../controllers/product");
 
 product.use(express.json());
 product.get("/", productController.getProducts);
+product.get("/:product_id", productController.getProductById);
 
 module.exports = product;
