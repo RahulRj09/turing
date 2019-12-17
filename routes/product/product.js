@@ -17,4 +17,6 @@ product.get(
 
 product.get("/:product_id/details", productController.getProductById);
 
+product.get("/:product_id/locations", productController.getProductLocations);
+
 module.exports = product;
