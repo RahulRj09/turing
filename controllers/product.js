@@ -41,5 +41,8 @@ exports.searchProduct = (req, res) => {
     .orWhere("description", "like", "%" + search + "%")
     .then(data => {
       return res.json(data);
+    })
+    .catch(error => {
+      return res.send(error);
     });
 };
