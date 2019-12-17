@@ -8,16 +8,9 @@ attributes.use(express.json());
 attributes.get("/", attributeController.getAttributes);
 attributes.get("/:attribute_id", attributeController.getAttributeById);
 
-attributes.get("/attributes/values/:attribute_id", (req, res) => {
-  knex("attribute_value")
-    .select("*")
-    .then(data => {
-       
-      res.json(data);
-    })
-    .catch(error => {
-      res.json("data not found");
-    });
-});
+attributes.get(
+  "/value/:attribute_id",
+  attributeController.getAttributeValueUsingAttributeId
+);
 
 module.exports = attributes;

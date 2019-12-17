@@ -23,3 +23,15 @@ exports.getAttributeById = (req, res) => {
       res.jsonp(error);
     });
 };
+
+exports.getAttributeValueUsingAttributeId = (req, res) => {
+  knex("attribute_value")
+    .select("*")
+    .where({ attribute_id: req.params.attribute_id })
+    .then(data => {
+      res.json(data);
+    })
+    .catch(error => {
+      res.json("data not found");
+    });
+};
