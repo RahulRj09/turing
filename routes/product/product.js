@@ -6,5 +6,9 @@ product.use(express.json());
 product.get("/", productController.getProducts);
 product.get("/search/:search", productController.searchProduct);
 product.get("/:product_id", productController.getProductById);
+product.get(
+  "/inCategory/:category_id",
+  productController.getProductUsingCategoryId
+);
 
 module.exports = product;
