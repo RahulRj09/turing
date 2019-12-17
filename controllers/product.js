@@ -46,3 +46,20 @@ exports.searchProduct = (req, res) => {
       return res.send(error);
     });
 };
+
+exports.getProductUsingCategoryId = (req, res) => {
+  knex("product")
+    .select("*")
+    .join(
+      "product_category",
+      "product.product_id",
+      "product_category.product_id"
+    )
+    .where("product_category.category_id", req.params.category_id)
+    .then(data => {
+      return res.json(data);
+    })
+    .catch(error => {
+      return res.send(error);
+    });
+};
