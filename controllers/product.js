@@ -83,3 +83,23 @@ exports.getProductUsingDepartmentId = (req, res) => {
       return res.send(error);
     });
 };
+
+exports.getProductLocations = (req, res) => {
+  const id = req.params.product_id;
+  knex
+    .select(
+      "category.category_id",
+      "category.name as category_name",
+      "category.department_id",
+      "department.name as department_name"
+    )
+    .from("product_category")
+    .join("category", "product_category.category_id", "category.category_id")
+    .join("department", {
+      "category.department_id": "department.department_id"
+    })
+    .where("product_category.product_id", id)
+    .then(data => {
+      return res.json(data);
+    });
+};
