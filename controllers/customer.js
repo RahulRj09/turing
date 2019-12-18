@@ -26,3 +26,15 @@ exports.login = (req, res) => {
       return res.send(error);
     });
 };
+
+exports.getUserInfo = (req, res) => {
+  knex("customer")
+    .select("*")
+    .where({ email: req.params.emailid })
+    .then(success => {
+      return res.json(success);
+    })
+    .catch(error => {
+      return res.send(error);
+    });
+};
